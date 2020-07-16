@@ -2,13 +2,13 @@ require 'uri'
 require 'net/http'
 require 'json'
 
-def request(url, api_key = "caJyYW2hcGTpc0V1IwO6oNqEgrFs9jPjEsyx4xb3")
+def request(url, api_key = "k47dVdRMmA8KoAdnRcznktcGf95YrHTnL4kZyKUr")
     url = URI("#{url}&api_key=#{api_key}")
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     request = Net::HTTP::Get.new(url)
     request["cache-control"] = 'no-cache'
-    request["Postman-Token"] = 'caJyYW2hcGTpc0V1IwO6oNqEgrFs9jPjEsyx4xb3'
+    request["Postman-Token"] = 'k47dVdRMmA8KoAdnRcznktcGf95YrHTnL4kZyKUr'
     response = http.request(request)
     JSON.parse(response.read_body)
 end
