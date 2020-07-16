@@ -17,10 +17,11 @@ def photos_count(hash)
     cams = []
     cams = hash["photos"].map {|x|x["camera"]["name"]}
     counter = cams.group_by{|x| x}
-    counter.each do |k,v|
+    counter.each do |k, v|
         counter[k] = v.count
     end
     return (counter)
 end
+
 data = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10")
 print(photos_count(data))
