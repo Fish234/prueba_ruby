@@ -24,4 +24,5 @@ def photos_count(hash)
 end
 
 data = request("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=10")
+
 print(photos_count(data))
