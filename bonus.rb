@@ -1,6 +1,7 @@
 require 'uri'
 require 'net/http'
 require 'json'
+
 def request(url, api_key = "caJyYW2hcGTpc0V1IwO6oNqEgrFs9jPjEsyx4xb3")
     url = URI("#{url}&api_key=#{api_key}")
     http = Net::HTTP.new(url.host, url.port)
@@ -11,6 +12,7 @@ def request(url, api_key = "caJyYW2hcGTpc0V1IwO6oNqEgrFs9jPjEsyx4xb3")
     response = http.request(request)
     JSON.parse(response.read_body)
 end
+
 def photos_count(hash)
     cams = []
     cams = hash["photos"].map {|x|x["camera"]["name"]}
